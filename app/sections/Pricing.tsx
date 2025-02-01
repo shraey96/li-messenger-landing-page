@@ -1,11 +1,12 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { useRef } from 'react';
-import { useInView } from 'framer-motion';
-import { Card } from '@/components/ui/card';
-import { Check } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { motion } from "framer-motion";
+import { useRef } from "react";
+import { useInView } from "framer-motion";
+import { Card } from "@/components/ui/card";
+import { Check } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { getAppLink } from "@/lib/utils";
 
 const plans = [
   {
@@ -18,12 +19,12 @@ const plans = [
       "Standard response time",
       "Email support",
       "Chrome extension",
-      "1 LinkedIn account"
-    ]
+      "1 LinkedIn account",
+    ],
   },
   {
     name: "Pro",
-    price: "$19",
+    price: "$4.99",
     period: "month",
     description: "For power users and professionals",
     features: [
@@ -34,15 +35,20 @@ const plans = [
       "Chrome extension",
       "Custom templates",
       "Message history & analytics",
-      "Up to 3 LinkedIn accounts"
+      "Up to 3 LinkedIn accounts",
     ],
-    popular: true
-  }
+    popular: true,
+  },
 ];
 
 export function Pricing() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+
+  const handleGetStarted = () => {
+    const appLink = `${getAppLink()}?section=pricing`;
+    window.open(appLink, "_blank");
+  };
 
   return (
     <section id="pricing" className="py-24">
@@ -54,7 +60,9 @@ export function Pricing() {
           transition={{ duration: 0.5 }}
           className="text-center"
         >
-          <h2 className="text-4xl font-bold gradient-text inline-block text-glow">Simple, Transparent Pricing</h2>
+          <h2 className="text-4xl font-bold gradient-text inline-block text-glow">
+            Simple, Transparent Pricing
+          </h2>
           <p className="mt-4 text-lg text-muted-foreground">
             Choose the plan that works best for you
           </p>
@@ -68,19 +76,31 @@ export function Pricing() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="h-full"
             >
-              <Card className={`p-8 relative h-full flex flex-col ${plan.popular ? 'border-blue-500 border-2' : ''}`}>
+              <Card
+                className={`p-8 relative h-full flex flex-col ${
+                  plan.popular ? "border-blue-500 border-2" : ""
+                }`}
+              >
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">Most Popular</span>
+                    <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">
+                      Most Popular
+                    </span>
                   </div>
                 )}
                 <div className="text-center">
                   <h3 className="text-2xl font-bold">{plan.name}</h3>
                   <div className="mt-4">
                     <span className="text-4xl font-bold">{plan.price}</span>
-                    {plan.period && <span className="text-muted-foreground">/{plan.period}</span>}
+                    {plan.period && (
+                      <span className="text-muted-foreground">
+                        /{plan.period}
+                      </span>
+                    )}
                   </div>
-                  <p className="mt-2 text-muted-foreground">{plan.description}</p>
+                  <p className="mt-2 text-muted-foreground">
+                    {plan.description}
+                  </p>
                 </div>
                 <ul className="mt-8 space-y-4 flex-grow">
                   {plan.features.map((feature) => (
@@ -91,11 +111,14 @@ export function Pricing() {
                   ))}
                 </ul>
                 <div className="mt-8">
-                  <Button 
-                    className={`w-full ${plan.popular ? 'gradient-bg text-white' : ''}`}
-                    variant={plan.popular ? 'default' : 'outline'}
+                  <Button
+                    className={`w-full ${
+                      plan.popular ? "gradient-bg text-white" : ""
+                    }`}
+                    variant={plan.popular ? "default" : "outline"}
+                    onClick={handleGetStarted}
                   >
-                    {plan.name === 'Free' ? 'Get Started' : 'Upgrade Now'}
+                    {plan.name === "Free" ? "Get Started" : "Upgrade Now"}
                   </Button>
                 </div>
               </Card>

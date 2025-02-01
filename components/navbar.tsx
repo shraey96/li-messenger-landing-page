@@ -1,17 +1,16 @@
 "use client";
 
-import * as React from "react";
 import Link from "next/link";
 import { MessageSquareText, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { getAppLink } from "@/lib/utils";
 
 const navItems = [
   { href: "#features", label: "Features" },
@@ -21,9 +20,12 @@ const navItems = [
 
 export function Navbar() {
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id.replace('#', ''));
+    const element = document.getElementById(id.replace("#", ""));
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      // Update URL hash without triggering scroll
+      history.pushState(null, "", id);
+
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -56,7 +58,7 @@ export function Navbar() {
         <div className="ml-auto flex items-center space-x-4">
           <div className="hidden md:flex items-center space-x-4">
             <Button variant="ghost" asChild>
-              <Link href="/login">Sign In</Link>
+              <Link href={getAppLink()}>Sign In</Link>
             </Button>
             <Button asChild>
               <Link href="/get-started">Get Started</Link>
@@ -84,10 +86,7 @@ export function Navbar() {
                     </button>
                   ))}
                   <hr className="my-4" />
-                  <Link
-                    href="/login"
-                    className="block px-2 py-1 text-lg"
-                  >
+                  <Link href={getAppLink()} className="block px-2 py-1 text-lg">
                     Sign In
                   </Link>
                   <Link
