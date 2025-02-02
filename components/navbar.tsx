@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { MessageSquareText, Menu, X } from "lucide-react";
+import Image from "next/image";
+import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -11,6 +12,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { getAppLink } from "@/lib/utils";
+import APP_ICON from "../app/icons/app-icon.png";
 
 const navItems = [
   { href: "#features", label: "Features" },
@@ -32,10 +34,12 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
-        <div className="mr-8 flex items-center space-x-2">
-          <MessageSquareText className="h-6 w-6" />
-          <span className="text-xl font-bold">LiMA</span>
-        </div>
+        <Link href="/">
+          <div className="mr-8 flex items-center space-x-2">
+            <Image src={APP_ICON} alt="" width={32} height={32} />
+            <span className="text-xl font-bold">LiMA</span>
+          </div>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:block">

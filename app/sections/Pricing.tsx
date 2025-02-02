@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import { useRef } from "react";
 import { useInView } from "framer-motion";
 import { Card } from "@/components/ui/card";
-import { Check } from "lucide-react";
+import { Check, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { getAppLink } from "@/lib/utils";
+import { Badge } from "@/components/ui/badge";
 
 const plans = [
   {
@@ -14,12 +14,20 @@ const plans = [
     price: "$0",
     description: "Perfect for trying out the assistant",
     features: [
-      "50 AI-assisted messages/month",
-      "Basic message suggestions",
-      "Standard response time",
-      "Email support",
-      "Chrome extension",
-      "1 LinkedIn account",
+      {
+        text: "10 LinkedIn messages per day",
+        available: true,
+      },
+      {
+        text: "5 post replies per day (Coming Soon)",
+        available: false,
+        comingSoon: true,
+      },
+      {
+        text: "2 connection requests per day (Coming Soon)",
+        available: false,
+        comingSoon: true,
+      },
     ],
   },
   {
@@ -27,28 +35,29 @@ const plans = [
     price: "$4.99",
     period: "month",
     description: "For power users and professionals",
-    features: [
-      "Unlimited AI-assisted messages",
-      "Advanced message suggestions",
-      "Priority response time",
-      "Priority support",
-      "Chrome extension",
-      "Custom templates",
-      "Message history & analytics",
-      "Up to 3 LinkedIn accounts",
-    ],
     popular: true,
+    features: [
+      {
+        text: "Unlimited LinkedIn messages",
+        available: true,
+      },
+      {
+        text: "Unlimited post replies (Coming Soon)",
+        available: false,
+        comingSoon: true,
+      },
+      {
+        text: "Unlimited connection requests (Coming Soon)",
+        available: false,
+        comingSoon: true,
+      },
+    ],
   },
 ];
 
 export function Pricing() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-
-  const handleGetStarted = () => {
-    const appLink = `${getAppLink()}?section=pricing`;
-    window.open(appLink, "_blank");
-  };
 
   return (
     <section id="pricing" className="py-24">
@@ -83,9 +92,9 @@ export function Pricing() {
               >
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">
+                    <Badge className="bg-primary text-primary-foreground">
                       Most Popular
-                    </span>
+                    </Badge>
                   </div>
                 )}
                 <div className="text-center">
@@ -93,7 +102,7 @@ export function Pricing() {
                   <div className="mt-4">
                     <span className="text-4xl font-bold">{plan.price}</span>
                     {plan.period && (
-                      <span className="text-muted-foreground">
+                      <span className="text-muted-foreground ml-1">
                         /{plan.period}
                       </span>
                     )}
@@ -104,19 +113,27 @@ export function Pricing() {
                 </div>
                 <ul className="mt-8 space-y-4 flex-grow">
                   {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-center">
-                      <Check className="h-5 w-5 text-blue-500 shrink-0 mr-2" />
-                      <span>{feature}</span>
+                    <li
+                      key={feature.text}
+                      className="flex items-center space-x-3"
+                    >
+                      {feature.available ? (
+                        <Check className="h-5 w-5 text-primary flex-shrink-0" />
+                      ) : (
+                        <Clock className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                      )}
+                      <span className="text-sm">{feature.text}</span>
                     </li>
                   ))}
                 </ul>
                 <div className="mt-8">
                   <Button
                     className={`w-full ${
-                      plan.popular ? "gradient-bg text-white" : ""
+                      plan.popular
+                        ? "gradient-bg text-white hover:opacity-90"
+                        : ""
                     }`}
                     variant={plan.popular ? "default" : "outline"}
-                    onClick={handleGetStarted}
                   >
                     {plan.name === "Free" ? "Get Started" : "Upgrade Now"}
                   </Button>
