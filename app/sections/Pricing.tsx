@@ -7,6 +7,7 @@ import { Card } from "@/components/ui/card";
 import { Check, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { getAppLink } from "@/lib/utils";
 
 const plans = [
   {
@@ -58,6 +59,11 @@ const plans = [
 export function Pricing() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+
+  const handlePricingRedirect = () => {
+    const baseAppLink = getAppLink();
+    window.open(`${baseAppLink}?section=pricing`, "_blank");
+  };
 
   return (
     <section id="pricing" className="py-24">
@@ -134,6 +140,7 @@ export function Pricing() {
                         : ""
                     }`}
                     variant={plan.popular ? "default" : "outline"}
+                    onClick={handlePricingRedirect}
                   >
                     {plan.name === "Free" ? "Get Started" : "Upgrade Now"}
                   </Button>

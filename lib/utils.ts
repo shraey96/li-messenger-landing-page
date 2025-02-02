@@ -6,5 +6,18 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function getAppLink(): string {
+  if (typeof window === "undefined") {
+    return "https://app.localhost/login";
+  }
   return `https://app.${window.location.hostname}/login`;
+}
+
+export function scrollToSection(id: string) {
+  const element = document.getElementById(id.replace("#", ""));
+  if (element) {
+    // Update URL hash without triggering scroll
+    history.pushState(null, "", id);
+
+    element.scrollIntoView({ behavior: "smooth" });
+  }
 }

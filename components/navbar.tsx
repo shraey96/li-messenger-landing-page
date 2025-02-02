@@ -11,7 +11,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { getAppLink } from "@/lib/utils";
+import { getAppLink, scrollToSection } from "@/lib/utils";
 import APP_ICON from "../app/icons/app-icon.png";
 
 const navItems = [
@@ -21,23 +21,13 @@ const navItems = [
 ];
 
 export function Navbar() {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id.replace("#", ""));
-    if (element) {
-      // Update URL hash without triggering scroll
-      history.pushState(null, "", id);
-
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
         <Link href="/">
           <div className="mr-8 flex items-center space-x-2">
             <Image src={APP_ICON} alt="" width={32} height={32} />
-            <span className="text-xl font-bold">LiMA</span>
+            <span className="text-xl font-bold">LiDraft</span>
           </div>
         </Link>
 
@@ -94,10 +84,12 @@ export function Navbar() {
                     Sign In
                   </Link>
                   <Link
-                    href="/get-started"
+                    href="/"
                     className="block px-2 py-1 text-lg text-primary"
                   >
-                    Get Started
+                    <a onClick={() => scrollToSection("#features")}>
+                      Get Started
+                    </a>
                   </Link>
                 </nav>
               </SheetContent>
