@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { getAppLink, scrollToSection } from "@/lib/utils";
-import APP_ICON from "../app/icons/app-icon.png";
+import APP_LOGO from "@/app/icons/app-icon.png";
 
 const navItems = [
   { href: "#features", label: "Features" },
@@ -26,7 +26,7 @@ export function Navbar() {
       <div className="container flex h-16 items-center">
         <Link href="/">
           <div className="mr-8 flex items-center space-x-2">
-            <Image src={APP_ICON} alt="" width={32} height={32} />
+            <Image src={APP_LOGO} alt="" width={32} height={32} />
             <span className="text-xl font-bold">LiDraft</span>
           </div>
         </Link>
