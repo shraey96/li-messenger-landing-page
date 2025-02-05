@@ -27,7 +27,7 @@ export function Navbar() {
         <Link href="/">
           <div className="mr-8 flex items-center space-x-2">
             <Image src={APP_LOGO} alt="" width={32} height={32} />
-            <span className="text-xl font-bold">LiDraft</span>
+            <span className="text-xl font-bold">DraftGPT</span>
           </div>
         </Link>
 
