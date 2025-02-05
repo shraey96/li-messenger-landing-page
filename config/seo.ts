@@ -1,32 +1,21 @@
-import { DefaultSeoProps } from 'next-seo';
+import { Metadata } from "next";
 
-export const SEO_CONFIG: DefaultSeoProps = {
-  titleTemplate: '%s | LinkedIn Message Assistant',
-  defaultTitle: 'LinkedIn Message Assistant - AI-Powered Message Composition',
-  description: 'Enhance your LinkedIn messaging with AI-powered composition capabilities. Save time and improve response quality while maintaining professional communication standards.',
+export const SEO_CONFIG: Partial<Metadata> = {
+  title: "DraftAI - AI-Powered Message Composition",
+  description:
+    "Enhance your LinkedIn messaging with AI-powered composition capabilities. Save time and improve response quality while maintaining professional communication standards.",
   openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://linkedin-message-assistant.com/',
-    siteName: 'LinkedIn Message Assistant',
+    type: "website",
+    locale: "en_US",
+    url: "https://draftai.io/",
+    siteName: "DraftAI",
     images: [
       {
-        url: '/og-image.png',
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: 'LinkedIn Message Assistant',
+        alt: "DraftAI",
       },
     ],
   },
-  twitter: {
-    handle: '@LiMessageAssist',
-    site: '@LiMessageAssist',
-    cardType: 'summary_large_image',
-  },
-  additionalMetaTags: [
-    {
-      name: 'viewport',
-      content: 'width=device-width, initial-scale=1',
-    },
-  ],
 };

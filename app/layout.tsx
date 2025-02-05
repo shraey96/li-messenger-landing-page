@@ -6,19 +6,10 @@ import { Metadata } from "next";
 import { SEO_CONFIG } from "@/config/seo";
 
 export const metadata: Metadata = {
-  title: SEO_CONFIG.defaultTitle,
+  title: SEO_CONFIG.title,
   description: SEO_CONFIG.description,
   openGraph: SEO_CONFIG.openGraph,
   twitter: SEO_CONFIG.twitter,
-  // icons: {
-  //   icon: [
-  //     {
-  //       url: '/favicon-32x32.png',
-  //       sizes: '32x32',
-  //       type: 'image/png',
-  //     },
-  //   ],
-  // },
 };
 
 export default function RootLayout({
