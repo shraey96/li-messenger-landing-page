@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { useRef } from 'react';
-import { useInView } from 'framer-motion';
+import { motion } from "framer-motion";
+import { useRef } from "react";
+import { useInView } from "framer-motion";
 import {
   Accordion,
   AccordionContent,
@@ -10,23 +10,51 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const faqs = [
+const FAQS = [
   {
-    question: "How does LinkedIn Message Assistant work?",
-    answer: "LinkedIn Message Assistant uses advanced AI to analyze conversation context and suggest appropriate responses. It integrates directly with LinkedIn's messaging interface, providing smart prompts and message improvements while maintaining a professional tone."
+    question: "What is DraftAI and how does it work with LinkedIn?",
+    answer:
+      "DraftAI is a Chrome extension that integrates directly with LinkedIn's messaging interface to help you compose more effective messages. It appears as a button next to LinkedIn's existing message actions (like the emoji button) and uses AI to either suggest contextual responses or improve your draft messages.",
   },
   {
-    question: "Is my data secure?",
-    answer: "Yes, we take privacy seriously. All message data is encrypted, and we don't store any personal conversations. The extension operates locally in your browser, and our AI processing follows strict security protocols."
+    question: "Is my message data secure and private?",
+    answer:
+      "Yes, your privacy is important to us. DraftAI does not permanently store any of your messages. Only the most recent 20-30 messages from your conversation are temporarily processed through our secure backend server to generate contextually relevant responses. This helps maintain the quality and relevance of AI-generated suggestions while protecting your privacy.",
   },
   {
-    question: "Can I customize the AI suggestions?",
-    answer: "Absolutely! You can adjust the tone, length, and style of suggestions. The AI learns from your preferences over time, making increasingly personalized recommendations."
+    question: "What are the subscription options for DraftAI?",
+    answer:
+      "DraftAI offers both monthly and yearly subscription plans. The yearly plan provides better value for long-term users. You can view detailed plan features and pricing by clicking on the extension icon and navigating to the Plan section in your dashboard.",
   },
   {
-    question: "Do you offer a free trial?",
-    answer: "Yes, we offer a free plan that includes basic features. You can upgrade to our Pro plan anytime to access advanced features and unlimited message assistance."
-  }
+    question: "What is your refund policy?",
+    answer:
+      "We offer a 7-day refund policy from the date of purchase. If you're not satisfied with DraftAI within the first week of your subscription, you can request a full refund through our support channel.",
+  },
+  {
+    question: "How do I access and use DraftAI's features?",
+    answer:
+      "Once installed, DraftAI appears as a button next to the emoji button in LinkedIn's message interface. You can either select from AI-suggested prompts based on your conversation context, or use the 'Improvise' feature to enhance a message you've drafted.",
+  },
+  {
+    question: "Can I edit the AI-generated messages before sending?",
+    answer:
+      "Yes, absolutely! All AI-generated messages appear in an editor where you can review and modify them before sending. You can also click 'Rephrase' to generate different variations of the message until you're satisfied with the result.",
+  },
+  {
+    question: "Do I need to be logged in to use DraftAI?",
+    answer:
+      "Yes, you need to be logged into both LinkedIn and your DraftAI account to use the extension. If you're not logged in, you'll be prompted to do so when you click the extension button.",
+  },
+  {
+    question: "What happens if I exceed my message limit?",
+    answer: `Your usage statistics are available in your dashboard https://app.${window.location.hostname}.com. Premium users enjoy higher usage limits and additional features.`,
+  },
+  {
+    question: "Can I use DraftAI on multiple devices?",
+    answer:
+      "Yes, you can use DraftAI on any device where you have Chrome installed and the extension added. Your subscription is tied to your account, not a specific device, so you can use it wherever you sign in.",
+  },
 ];
 
 export function FAQ() {
@@ -43,9 +71,11 @@ export function FAQ() {
           transition={{ duration: 0.5 }}
           className="text-center"
         >
-          <h2 className="text-4xl font-bold gradient-text inline-block text-glow">Frequently Asked Questions</h2>
+          <h2 className="text-4xl font-bold gradient-text inline-block text-glow">
+            Frequently Asked Questions
+          </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Everything you need to know about LinkedIn Message Assistant
+            Everything you need to know about DraftAI
           </p>
         </motion.div>
         <motion.div
@@ -55,8 +85,8 @@ export function FAQ() {
           className="mt-16 max-w-3xl mx-auto"
         >
           <Accordion type="single" collapsible>
-            {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`}>
+            {FAQS.map((faq) => (
+              <AccordionItem key={faq.question} value={`item-${faq.question}`}>
                 <AccordionTrigger>{faq.question}</AccordionTrigger>
                 <AccordionContent>{faq.answer}</AccordionContent>
               </AccordionItem>

@@ -1,23 +1,23 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { useRef } from 'react';
-import { useInView } from 'framer-motion';
-import { Card } from '@/components/ui/card';
+import { motion } from "framer-motion";
+import { useRef } from "react";
+import { useInView } from "framer-motion";
+import { Card } from "@/components/ui/card";
 
 const steps = [
   {
     title: "Install Extension",
-    description: "Add LinkedIn Message Assistant to Chrome in just one click"
+    description: "Add DraftAI to Chrome in just one click",
   },
   {
     title: "Connect LinkedIn",
-    description: "Seamlessly integrate with your LinkedIn messaging"
+    description: "Seamlessly integrate with your LinkedIn messaging",
   },
   {
     title: "Start Composing",
-    description: "Use AI-powered features to craft perfect messages"
-  }
+    description: "Use AI-powered features to craft perfect messages",
+  },
 ];
 
 export function HowItWorks() {
@@ -34,9 +34,11 @@ export function HowItWorks() {
           transition={{ duration: 0.5 }}
           className="text-center"
         >
-          <h2 className="text-4xl font-bold gradient-text inline-block text-glow">How It Works</h2>
+          <h2 className="text-4xl font-bold gradient-text inline-block text-glow">
+            How It Works
+          </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Get started with LinkedIn Message Assistant in three simple steps
+            Get started with DraftAI in three simple steps
           </p>
         </motion.div>
         <div className="mt-16 grid gap-8 md:grid-cols-3">

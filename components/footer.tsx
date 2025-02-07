@@ -18,8 +18,7 @@ export function Footer() {
           </nav>
 
           <div className="text-center text-sm text-muted-foreground">
-            © {new Date().getFullYear()} LinkedIn Message Assistant. All rights
-            reserved.
+            © {new Date().getFullYear()} DraftAI. All rights reserved.
           </div>
         </div>
       </div>

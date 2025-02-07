@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   description: SEO_CONFIG.description,
   openGraph: SEO_CONFIG.openGraph,
   twitter: SEO_CONFIG.twitter,
+  metadataBase: new URL("https://draftai.io"),
 };
 
 export default function RootLayout({
