@@ -48,7 +48,7 @@ const FAQS = [
   },
   {
     question: "What happens if I exceed my message limit?",
-    answer: `Your usage statistics are available in your dashboard https://app.${window.location.hostname}.com. Premium users enjoy higher usage limits and additional features.`,
+    answer: `Your usage statistics are available in your dashboard https://app.draftai.io/dashboard. Premium users enjoy higher usage limits and additional features.`,
   },
   {
     question: "Can I use DraftAI on multiple devices?",
