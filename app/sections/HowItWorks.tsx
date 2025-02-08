@@ -1,22 +1,36 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { Card } from "@/components/ui/card";
+import { MessageSquareText, Wand2, Sparkles } from "lucide-react";
+
+import HOW_IT_WORKS_1_IMG from "@/app/images/how-it-works-1.png";
+import HOW_IT_WORKS_2_IMG from "@/app/images/how-it-works-2.png";
+import HOW_IT_WORKS_3_IMG from "@/app/images/how-it-works-3.png";
 
 const steps = [
   {
-    title: "Install Extension",
-    description: "Add DraftAI to Chrome in just one click",
+    icon: MessageSquareText,
+    title: "Access DraftAI",
+    description:
+      "Click the extension button next to LinkedIn's message actions",
+    image: HOW_IT_WORKS_1_IMG,
   },
   {
-    title: "Connect LinkedIn",
-    description: "Seamlessly integrate with your LinkedIn messaging",
+    icon: Wand2,
+    title: "Choose Your Mode",
+    description:
+      "Select Smart Prompts for suggestions or Improvise to enhance your message",
+    image: HOW_IT_WORKS_2_IMG,
   },
   {
-    title: "Start Composing",
-    description: "Use AI-powered features to craft perfect messages",
+    icon: Sparkles,
+    title: "Enhance & Send",
+    description: "Review the AI-enhanced message and click send when ready",
+    image: HOW_IT_WORKS_3_IMG,
   },
 ];
 
@@ -38,23 +52,60 @@ export function HowItWorks() {
             How It Works
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Get started with DraftAI in three simple steps
+            Transform your LinkedIn messaging in three simple steps
           </p>
         </motion.div>
-        <div className="mt-16 grid gap-8 md:grid-cols-3">
+
+        <div className="mt-16 grid gap-8 md:gap-12 lg:gap-16 md:grid-cols-2 lg:grid-cols-3">
           {steps.map((step, index) => (
             <motion.div
               key={step.title}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="flex flex-col"
             >
-              <Card className="p-8 text-center">
-                <div className="w-12 h-12 rounded-full bg-blue-500 text-white flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                  {index + 1}
+              <Card className="p-6 flex-1 hover:border-blue-500/20 transition-colors relative overflow-hidden group">
+                <div className="absolute inset-0 feature-gradient opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
+
+                {/* Step Number and Icon */}
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-r from-blue-500/10 via-blue-600/10 to-indigo-600/10 flex items-center justify-center">
+                    <div className="gradient-bg rounded-xl p-2 text-white">
+                      <step.icon className="h-5 w-5" />
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold group-hover:text-blue-600 transition-colors">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      {step.description}
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                <p className="text-muted-foreground">{step.description}</p>
+
+                {/* Screenshot Container */}
+                <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-lg transition-transform duration-300 group-hover:scale-[1.02]">
+                  <div className="absolute inset-0 bg-[#1D2432] rounded-lg">
+                    <Image
+                      src={step.image}
+                      alt={step.title}
+                      fill
+                      className="object-contain p-4"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      priority={index === 0}
+                    />
+                  </div>
+                </div>
+
+                {/* Connection Line - Only visible on larger screens */}
+                {index < steps.length - 1 && (
+                  <div className="hidden lg:block absolute -right-8 top-1/2 transform -translate-y-1/2 w-16">
+                    <div className="border-t-2 border-dashed border-blue-500/20 w-full" />
+                    <div className="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-blue-500/20" />
+                  </div>
+                )}
               </Card>
             </motion.div>
           ))}

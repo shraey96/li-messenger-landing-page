@@ -7,7 +7,7 @@ export function cn(...inputs: ClassValue[]) {
 
 export function getAppLink(): string {
   if (typeof window === "undefined") {
-    return "https://app.localhost/login";
+    return "https://app.draftai.io/login";
   }
   return `https://app.${window.location.hostname}/login`;
 }

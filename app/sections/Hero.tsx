@@ -52,7 +52,7 @@ export function Hero() {
               size="lg"
               variant="outline"
               className="hover:bg-secondary/80 transition-all duration-300 hover-lift rounded-2xl px-8 py-6 text-lg font-medium w-full sm:w-auto"
-              onClick={() => scrollToSection("#features")}
+              onClick={() => scrollToSection("#how-it-works")}
             >
               See How It Works
             </Button>
