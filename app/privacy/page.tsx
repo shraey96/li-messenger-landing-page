@@ -52,10 +52,7 @@ const Privacy = () => {
                     Message data is used solely for generating AI-powered
                     responses.
                   </li>
-                  <li>
-                    We do not permanently store any message content on our
-                    servers.
-                  </li>
+                  <li>We do not store any message content on our servers.</li>
                 </ul>
               </div>
               <div>
@@ -100,8 +97,7 @@ const Privacy = () => {
                 your information.
               </p>
               <p>
-                4.2. Message data is processed in real-time and is not
-                permanently stored.
+                4.2. Message data is processed in real-time and is not stored.
               </p>
               <p>
                 4.3. All data transmissions between our extension and servers
@@ -164,31 +160,10 @@ const Privacy = () => {
             </div>
           </section>
 
-          {/* Cookie Policy */}
-          <section>
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">
-              8. Cookie Policy
-            </h2>
-            <div className="space-y-3 text-gray-700">
-              <p>
-                8.1. We use essential cookies to maintain your session and
-                preferences.
-              </p>
-              <p>
-                8.2. Analytics cookies help us understand how users interact
-                with our service.
-              </p>
-              <p>
-                8.3. You can control cookie preferences through your browser
-                settings.
-              </p>
-            </div>
-          </section>
-
           {/* Changes to Privacy Policy */}
           <section>
             <h2 className="text-xl font-semibold text-gray-900 mb-4">
-              9. Changes to Privacy Policy
+              8. Changes to Privacy Policy
             </h2>
             <p className="text-gray-700 leading-relaxed">
               We may update this Privacy Policy from time to time. We will
@@ -200,7 +175,7 @@ const Privacy = () => {
           {/* Contact Information */}
           <section>
             <h2 className="text-xl font-semibold text-gray-900 mb-4">
-              10. Contact Us
+              9. Contact Us
             </h2>
             <div className="space-y-3 text-gray-700">
               <p>
@@ -208,8 +183,7 @@ const Privacy = () => {
                 contact us at:
               </p>
               <ul className="list-disc pl-5 space-y-2">
-                <li>Email: privacy@draftai.com</li>
-                <li>Website: https://draftai.com/contact</li>
+                <li>Email: support@draftai.io</li>
               </ul>
             </div>
           </section>

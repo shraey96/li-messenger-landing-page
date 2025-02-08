@@ -179,7 +179,7 @@ const Terms = () => {
             </h2>
             <p className="text-gray-700 leading-relaxed">
               For any questions about these Terms and Conditions, please contact
-              us at support@draftai.com
+              us at support@draftai.io
             </p>
           </section>
         </div>
