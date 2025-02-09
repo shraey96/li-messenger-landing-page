@@ -98,14 +98,6 @@ export function HowItWorks() {
                     />
                   </div>
                 </div>
-
-                {/* Connection Line - Only visible on larger screens */}
-                {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute -right-8 top-1/2 transform -translate-y-1/2 w-16">
-                    <div className="border-t-2 border-dashed border-blue-500/20 w-full" />
-                    <div className="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-blue-500/20" />
-                  </div>
-                )}
               </Card>
             </motion.div>
           ))}

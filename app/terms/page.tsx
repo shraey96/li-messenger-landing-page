@@ -72,9 +72,7 @@ const Terms = () => {
                 4.1. We process only the last 20-30 messages from your LinkedIn
                 conversations to provide our Service.
               </p>
-              <p>
-                4.2. We do not store your messages permanently on our servers.
-              </p>
+              <p>4.2. We do not store your messages on our servers.</p>
               <p>
                 4.3. Message data is only used to generate AI-powered responses
                 and is not used for any other purpose.
