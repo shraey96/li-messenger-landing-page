@@ -39,7 +39,7 @@ export function HowItWorks() {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <section id="how-it-works" className="py-24 bg-gray-50">
+    <section id="how-it-works" className="py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}

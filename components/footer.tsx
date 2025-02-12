@@ -6,9 +6,9 @@ export function Footer() {
       <div className="container py-8">
         <div className="flex flex-col items-center gap-6">
           <nav className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
-            <Link href="/about" className="hover:text-foreground">
+            {/* <Link href="/about" className="hover:text-foreground">
               About
-            </Link>
+            </Link> */}
             <Link href="/terms" className="hover:text-foreground">
               Terms & Conditions
             </Link>

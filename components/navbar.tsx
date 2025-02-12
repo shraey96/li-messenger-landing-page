@@ -15,8 +15,8 @@ import { getAppLink, scrollToSection } from "@/lib/utils";
 import APP_LOGO from "@/app/icons/app-icon.png";
 
 const navItems = [
-  { href: "#features", label: "Features" },
   { href: "#how-it-works", label: "How It Works" },
+  { href: "#features", label: "Features" },
   { href: "#pricing", label: "Pricing" },
 ];
 

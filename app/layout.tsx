@@ -11,6 +11,60 @@ export const metadata: Metadata = {
   openGraph: SEO_CONFIG.openGraph,
   twitter: SEO_CONFIG.twitter,
   metadataBase: new URL("https://draftai.io"),
+
+  metadataBase: new URL("https://draftai.io"),
+  title: {
+    default: SEO_CONFIG.title as string,
+    template: "%s | DraftAI",
+  },
+  description: SEO_CONFIG.description,
+  keywords: [
+    "AI writing assistant",
+    "LinkedIn messaging",
+    "AI message composition",
+    "professional communication",
+    "networking tools",
+  ],
+  authors: [{ name: "DraftAI" }],
+  creator: "DraftAI",
+  publisher: "DraftAI",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    ...SEO_CONFIG.openGraph,
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    ...SEO_CONFIG.twitter,
+    card: "summary_large_image",
+    creator: "@draftai",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    google: "your-google-site-verification",
+    yandex: "your-yandex-verification",
+    yahoo: "your-yahoo-verification",
+  },
+  alternates: {
+    canonical: "https://draftai.io",
+    languages: {
+      "en-US": "https://draftai.io",
+    },
+  },
 };
 
 export default function RootLayout({
