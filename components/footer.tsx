@@ -9,6 +9,10 @@ export function Footer() {
             {/* <Link href="/about" className="hover:text-foreground">
               About
             </Link> */}
+
+            <Link href="/contact-us" className="hover:text-foreground">
+              Contact Us
+            </Link>
             <Link href="/terms" className="hover:text-foreground">
               Terms & Conditions
             </Link>
