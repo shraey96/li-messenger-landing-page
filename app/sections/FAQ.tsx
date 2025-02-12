@@ -82,13 +82,17 @@ export function FAQ() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-16 max-w-3xl mx-auto"
+          className="mt-16 max-w-3xl mx-auto px-4 sm:px-0"
         >
-          <Accordion type="single" collapsible>
+          <Accordion type="single" collapsible className="w-full">
             {FAQS.map((faq) => (
               <AccordionItem key={faq.question} value={`item-${faq.question}`}>
-                <AccordionTrigger>{faq.question}</AccordionTrigger>
-                <AccordionContent>{faq.answer}</AccordionContent>
+                <AccordionTrigger className="text-left">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-left">
+                  {faq.answer}
+                </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
