@@ -6,12 +6,6 @@ import { Metadata } from "next";
 import { SEO_CONFIG } from "@/config/seo";
 
 export const metadata: Metadata = {
-  title: SEO_CONFIG.title,
-  description: SEO_CONFIG.description,
-  openGraph: SEO_CONFIG.openGraph,
-  twitter: SEO_CONFIG.twitter,
-  metadataBase: new URL("https://draftai.io"),
-
   metadataBase: new URL("https://draftai.io"),
   title: {
     default: SEO_CONFIG.title as string,
