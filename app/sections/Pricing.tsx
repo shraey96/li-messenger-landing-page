@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useRef } from "react";
 import { useInView } from "framer-motion";
 import { Card } from "@/components/ui/card";
-import { Check, Clock } from "lucide-react";
+import { Check, Clock, Timer } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { getAppLink } from "@/lib/utils";
@@ -33,10 +33,13 @@ const plans = [
   },
   {
     name: "Pro",
-    price: "$4.99",
+    price: "$2.99",
+    originalPrice: "$4.99",
     period: "month",
     description: "For power users and professionals",
     popular: true,
+    limitedOffer: true,
+    limitedOfferText: "First 100 users get Pro for $2.99/month!",
     features: [
       {
         text: "Unlimited LinkedIn messages",
@@ -81,6 +84,12 @@ export function Pricing() {
           <p className="mt-4 text-lg text-muted-foreground">
             Choose the plan that works best for you
           </p>
+          <div className="mt-4 inline-flex items-center gap-2 bg-blue-50 text-blue-600 px-4 py-2 rounded-full">
+            <Timer className="w-4 h-4" />
+            <span className="text-sm font-medium">
+              Limited Time Offer: First 100 users get Pro for $2.99/month!
+            </span>
+          </div>
         </motion.div>
         <div className="mt-16 grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
           {plans.map((plan, index) => (
@@ -106,6 +115,11 @@ export function Pricing() {
                 <div className="text-center">
                   <h3 className="text-2xl font-bold">{plan.name}</h3>
                   <div className="mt-4">
+                    {plan.originalPrice && (
+                      <span className="text-lg line-through text-muted-foreground mr-2">
+                        {plan.originalPrice}
+                      </span>
+                    )}
                     <span className="text-4xl font-bold">{plan.price}</span>
                     {plan.period && (
                       <span className="text-muted-foreground ml-1">
@@ -113,6 +127,11 @@ export function Pricing() {
                       </span>
                     )}
                   </div>
+                  {plan.limitedOffer && (
+                    <p className="mt-2 text-sm text-blue-600 font-medium">
+                      {plan.limitedOfferText}
+                    </p>
+                  )}
                   <p className="mt-2 text-muted-foreground">
                     {plan.description}
                   </p>

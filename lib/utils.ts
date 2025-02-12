@@ -7,9 +7,9 @@ export function cn(...inputs: ClassValue[]) {
 
 export function getAppLink(): string {
   if (typeof window === "undefined") {
-    return "https://app.draftai.io/login";
+    return "https://app.draftai.io";
   }
-  return `https://app.${window.location.hostname}/login`;
+  return `https://app.${window.location.hostname}`;
 }
 
 export function scrollToSection(id: string) {
