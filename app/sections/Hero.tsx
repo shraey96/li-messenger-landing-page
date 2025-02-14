@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Chrome } from "lucide-react";
 import { scrollToSection } from "@/lib/utils";
+import { CHROME_EXTENSION_URL } from "@/lib/constants";
+import Link from "next/link";
 
 export function Hero() {
   return (
@@ -46,7 +48,9 @@ export function Hero() {
               className="gradient-bg text-white hover:opacity-90 transition-all duration-300 hover-lift rounded-2xl px-8 py-6 text-lg font-medium w-full sm:w-auto inline-flex items-center justify-center gap-2"
             >
               <Chrome className="h-5 w-5" />
-              Add to Chrome
+              <Link href={CHROME_EXTENSION_URL} target="_blank">
+                Add to Chrome
+              </Link>
             </Button>
             <Button
               size="lg"

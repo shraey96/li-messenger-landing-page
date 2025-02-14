@@ -47,8 +47,14 @@ const FAQS = [
       "Yes, you need to be logged into both LinkedIn and your DraftAI account to use the extension. If you're not logged in, you'll be prompted to do so when you click the extension button.",
   },
   {
-    question: "What happens if I exceed my message limit?",
-    answer: `Your usage statistics are available in your dashboard https://app.draftai.io/dashboard. Premium users enjoy higher usage limits and additional features.`,
+    question: "Why isn't my Pro status showing after payment?",
+    answer:
+      "If you've recently upgraded to Pro but don't see your status updated, try logging out and logging back in to refresh your account status. This usually resolves any sync issues with your subscription status.",
+  },
+  {
+    question: "Why isn't my Pro status showing after payment?",
+    answer:
+      "If you've recently upgraded to Pro but don't see your status updated, try logging out and logging back in to refresh your account status. This usually resolves any sync issues with your subscription status.",
   },
   {
     question: "Can I use DraftAI on multiple devices?",

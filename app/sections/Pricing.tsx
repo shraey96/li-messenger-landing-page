@@ -16,7 +16,7 @@ const plans = [
     description: "Perfect for trying out the assistant",
     features: [
       {
-        text: "10 LinkedIn messages per day",
+        text: "15 LinkedIn messages per day",
         available: true,
       },
       {
@@ -34,7 +34,7 @@ const plans = [
   {
     name: "Pro",
     price: "$2.99",
-    originalPrice: "$4.99",
+    originalPrice: "$2.99",
     period: "month",
     description: "For power users and professionals",
     popular: true,

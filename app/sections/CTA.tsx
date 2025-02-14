@@ -1,9 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useRef } from "react";
+import Link from "next/link";
+import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { CHROME_EXTENSION_URL } from "@/lib/constants";
 
 export function CTA() {
   const ref = useRef(null);
@@ -31,7 +33,9 @@ export function CTA() {
               size="lg"
               className="gradient-bg text-white hover:opacity-90 transition-all duration-300 hover-lift rounded-2xl px-8 py-6 text-lg font-medium"
             >
-              Get Started Free
+              <Link href={CHROME_EXTENSION_URL} target="_blank">
+                Get Started Free
+              </Link>
             </Button>
           </div>
         </motion.div>
