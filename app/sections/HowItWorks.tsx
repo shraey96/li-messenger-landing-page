@@ -56,6 +56,32 @@ export function HowItWorks() {
           </p>
         </motion.div>
 
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-16 max-w-4xl mx-auto"
+        >
+          <div className="relative pb-[56.25%] h-0 rounded-2xl overflow-hidden shadow-xl">
+            {/* <iframe
+              src="https://www.youtube.com/embed/VsBwBaPa5Bg"
+              title="DraftAI Demo"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="absolute top-0 left-0 w-full h-full rounded-2xl"
+            /> */}
+            <iframe
+              src="https://www.youtube.com/embed/VsBwBaPa5Bg?si=cZOrFVZOWyfzq6F0"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+              className="absolute top-0 left-0 w-full h-full rounded-2xl"
+            ></iframe>
+          </div>
+        </motion.div>
+
         <div className="mt-16 grid gap-8 md:gap-12 lg:gap-16 md:grid-cols-2 lg:grid-cols-3">
           {steps.map((step, index) => (
             <motion.div
