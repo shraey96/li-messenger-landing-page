@@ -65,7 +65,7 @@ export function Pricing() {
 
   const handlePricingRedirect = () => {
     const baseAppLink = getAppLink();
-    window.open(`${baseAppLink}?section=pricing`, "_blank");
+    window.open(baseAppLink, "_blank");
   };
 
   return (
